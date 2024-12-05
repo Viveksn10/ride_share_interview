@@ -23,7 +23,7 @@ class LoginView(APIView):
         return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
     
 
-"""from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet
 from .models import Ride
 from .serializers import RideSerializer
 from rest_framework.permissions import IsAuthenticated
@@ -35,15 +35,5 @@ class RideViewSet(ModelViewSet):
 
 
     def perform_create(self, serializer):
-        serializer.save(rider=self.request.user)"""
-
-from rest_framework.permissions import IsAuthenticated
-from .models import Ride
-from .serializers import RideSerializer
-from rest_framework.viewsets import ModelViewSet
-
-class RideViewSet(ModelViewSet):
-    queryset = Ride.objects.all()
-    serializer_class = RideSerializer
-    permission_classes = [IsAuthenticated]
+        serializer.save(rider=self.request.user)
 
